@@ -1,0 +1,32 @@
+#include <stdio.h>
+#include <iostream.h>
+
+int main()
+{
+  long array[], n, i, j;
+
+  printf("Dizinin kac elemanli olacagini belirtin\n");
+  scanf("%d", &n);
+
+  array.resize(n); //üst düzey bir veri yapısı kullanılmadan
+                   //dizinin boyutu resize ile dinamik hale getiriliyor.
+  
+  srand(time(NULL));
+  printf("Dizinin ilk hali:\n");
+  
+  for(i=0; i<n; i++)
+  {
+ 	array[i]=rand()%1000;
+ 	printf("%d , ", array[i]);
+  }
+  
+  printf("\n\n");
+
+  printf("Dizinin ters yazilmis hali:\n");
+
+  for (j = n; j >= 0; j--)
+  {
+    printf("%d , ", array[j]);
+  }
+ return 0;
+}
