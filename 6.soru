@@ -1,0 +1,53 @@
+using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
+
+namespace EnFazlaSifirliAltdizi
+{
+    class Program
+    {
+        static void Main(string[] args)
+        {
+            int[] dizi = new int[] { 0, 1, 0, 0, 0, 0, 0, 1, 1, 0, 0, 0, 0, 0, 0, 1, 1, 1, 0, 0 };
+            AltDiziBul(dizi);
+        }
+
+        public static void AltDiziBul(int[] dizi)
+        {
+            int[] uzunluk = new int[dizi.Length];
+            int sayac = 0, say = 0;
+            Console.Write("Dizinin elemanlari :");
+            for (int i = 0; i < dizi.Length; i++)
+            {
+                if (dizi[i] == 0)
+                {
+                    sayac=sayac+1;
+                }
+                else 
+                    if (dizi[i] == 1 && sayac > 0)
+                {
+                    uzunluk[say] = sayac;
+                    sayac = 0;
+                    say=say+1;
+                }
+                Console.Write(dizi[i] + " , ");
+            }
+
+            karsilastir(uzunluk);   
+        }
+
+        public static void karsilastir(int[] uzunluk)
+        {
+            int max = 0;
+            for (int j = 0; j < uzunluk.Length; j++)
+            {
+                if (uzunluk[j] > max)
+                    max = uzunluk[j];
+            }
+            Console.WriteLine("En cok sifira sahip alt dizinin eleman sayisi : " + max);
+            Console.ReadKey();
+        }
+    }
+}
